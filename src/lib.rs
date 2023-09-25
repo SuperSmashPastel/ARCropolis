@@ -427,10 +427,10 @@ pub fn main() {
             },
         };
 
-        let err_msg = format!("ARCropolis has panicked at '{}', {}", msg, location);
+        let err_msg = format!("A problem has been detected and ARCropolis has been shut down at '{}', {}", msg, location);
         skyline::error::show_error(
             69,
-            "ARCropolis has panicked! Please open the details and send a screenshot to the developer, then close the game.\n\0",
+            "A problem has been detected and ARCropolis has been shut down.\n\0",
             err_msg.as_str(),
         );
     }));

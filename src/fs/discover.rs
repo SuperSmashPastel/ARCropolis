@@ -147,6 +147,15 @@ pub fn perform_discovery() -> LaunchPad<StandardLoader> {
     launchpad.ignoring(ignore);
 
     let conflicts = launchpad.discover_roots(&mods_path, 1, filter);
+    let conflicts = launchpad.discover_roots(&mods_path, 2, filter);
+    let conflicts = launchpad.discover_roots(&mods_path, 3, filter);
+    let conflicts = launchpad.discover_roots(&mods_path, 4, filter);
+    let conflicts = launchpad.discover_roots(&mods_path, 5, filter);
+    let conflicts = launchpad.discover_roots(&mods_path, 6, filter);
+    let conflicts = launchpad.discover_roots(&mods_path, 7, filter);
+    let conflicts = launchpad.discover_roots(&mods_path, 8, filter);
+    let conflicts = launchpad.discover_roots(&mods_path, 9, filter);
+    let conflicts = launchpad.discover_roots(&mods_path, 10, filter);
 
     let should_prompt = !conflicts.is_empty();
 
@@ -183,7 +192,16 @@ pub fn perform_discovery() -> LaunchPad<StandardLoader> {
         launchpad.collecting(collect);
         launchpad.ignoring(ignore);
 
-        let conflicts = launchpad.discover_roots(utils::paths::mods(), 1, filter);
+        let conflicts = launchpad.discover_roots(utils::paths::mods(),1, filter);
+        let conflicts = launchpad.discover_roots(utils::paths::mods(),2, filter);
+        let conflicts = launchpad.discover_roots(utils::paths::mods(),3, filter);
+        let conflicts = launchpad.discover_roots(utils::paths::mods(),4, filter);
+        let conflicts = launchpad.discover_roots(utils::paths::mods(),5, filter);
+        let conflicts = launchpad.discover_roots(utils::paths::mods(),6, filter);
+        let conflicts = launchpad.discover_roots(utils::paths::mods(),7, filter);
+        let conflicts = launchpad.discover_roots(utils::paths::mods(),8, filter);
+        let conflicts = launchpad.discover_roots(utils::paths::mods(),9, filter);
+        let conflicts = launchpad.discover_roots(utils::paths::mods(),10, filter);
 
         let mut conflict_map: HashMap<PathBuf, Vec<PathBuf>> = HashMap::new();
 
@@ -210,14 +228,14 @@ pub fn perform_discovery() -> LaunchPad<StandardLoader> {
                 },
                 Err(e) => {
                     crate::dialog_error(format!(
-                        "Failed to write conflict map to sd:/ultimate/arcropolis/conflicts.json<br>{:?}",
+                        "Failure to write conflict map to sd:/ultimate/arcropolis/conflicts.json<br>{:?}",
                         e
                     ));
                     true
                 },
             },
             Err(e) => {
-                crate::dialog_error(format!("Failed to serialize conflict map to JSON. {:?}", e));
+                crate::dialog_error(format!("Failure to serialize conflict map to JSON. {:?}", e));
                 true
             },
         };

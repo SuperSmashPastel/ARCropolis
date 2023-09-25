@@ -10,7 +10,7 @@ pub fn reshare_contained_files(ctx: &mut AdditionContext, dependent: Hash40, sou
         Ok(dir_info) => dir_info.file_info_range(),
         Err(_) => {
             error!(
-                "Failed to find source directory '{}' ({:#x}) when attempting to reshare their contained files.",
+                "Cannot find source directory '{}' ({:#x}) when attempting to reshare their contained files.",
                 hashes::find(source),
                 source.0
             );
@@ -22,7 +22,7 @@ pub fn reshare_contained_files(ctx: &mut AdditionContext, dependent: Hash40, sou
         Ok(dir_info) => dir_info.file_info_range(),
         Err(_) => {
             error!(
-                "Failed to find dependent directory '{}' ({:#x}) when attempting to reshare their contained files.",
+                "Cannot find dependent directory '{}' ({:#x}) when attempting to reshare their contained files.",
                 hashes::find(dependent),
                 dependent.0
             );

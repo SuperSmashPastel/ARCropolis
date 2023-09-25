@@ -114,7 +114,7 @@ impl FileSystemAccessor for ModFsAccessor {
         } else {
             Err(AccessorResult::PathNotFound)
         }
-    }
+    }   
 }
 
 pub fn install_mod_fs() {

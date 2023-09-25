@@ -155,7 +155,7 @@ pub fn initialize_share(arc: Option<&LoadedArc>) {
                     },
                     Err(_) => {
                         error!(
-                            "Failed to get shared file for '{}' ({:#x}) while generating share.lut",
+                            "Cannot get shared file for '{}' ({:#x}) while generating share.lut",
                             hashes::find(hash),
                             hash.0
                         );
@@ -188,11 +188,11 @@ pub fn initialize_share(arc: Option<&LoadedArc>) {
                 Ok(data) => {
                     let path = crate::utils::paths::cache().join("share.lut");
                     if let Err(e) = std::fs::write(&path, data) {
-                        error!("Failed to write share LUT to cache file at '{}'. Reason: {:?}", path, e);
+                        error!("Cannot write share LUT to cache file at '{}'. Reason: {:?}", path, e);
                     }
                 },
                 Err(e) => {
-                    error!("Failed to serialize share LUT into bytes. Reason: {:?}", *e);
+                    error!("Cannot serialize share LUT into bytes. Reason: {:?}", *e);
                 },
             }
 

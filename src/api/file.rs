@@ -24,7 +24,7 @@ pub extern "C" fn arcrop_load_file(hash: Hash40, out_buffer: *mut u8, buf_length
         true
     } else {
         *out_size = 0;
-        debug!("arcrop_load_file -> Failed to read file!");
+        debug!("arcrop_load_file -> Cannot read file!");
         false
     }
 }
@@ -58,7 +58,7 @@ pub extern "C" fn arcrop_is_file_loaded(hash: Hash40) -> bool {
         let arc = resource::arc();
         let filesystem_info = resource::filesystem_info();
         match arc.get_file_path_index_from_hash(hash) {
-            Ok(file_path_index) => filesystem_info.get_loaded_filepaths()[file_path_index.0 as usize].is_loaded == 1,
+            Ok(file_path_index) => filesystem_info.get_loaded_filepaths()[file_path_index.0 as usize].is_loaded == 8,
             _ => false,
         }
     }
